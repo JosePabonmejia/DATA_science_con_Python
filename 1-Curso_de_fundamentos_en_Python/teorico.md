@@ -123,6 +123,7 @@ vars.py
 
         format_2 = "Hola mi nombre es {} y mi apellido es {}".format(name, last_name)
         print("v2", format_2)
+
 ***No te olvides la f de format***
 
         format_3 = f"Hola mi nombre es {name} y mi apellido es {last_name}"
@@ -134,4 +135,447 @@ vars.py
         name = "jose"
         str(name) = 4 
 
+## Operadores aritmeticos
 
+        print(10 + 10)  #Operador de suma
+        print(10 - 10)  #Operador de resta
+        print(10 * 10)  #Operador de multiplicasion
+        print(10 / 10)  #Operador de division
+        print(10 % 10)  #Operador de modulo osea residuo
+        print(
+        10 % 10
+        )  #Operador de division enterea osea que nos quedamos con el valor entero de la division
+        print(10**10)  #Operador de exponensiacion
+
+* Orden de ejecucion
+
+        # Orden de ejecucion
+        # P parentesis
+        # E exponentes
+        # M multiplicacion
+        # D Division
+        # A Adicion
+        # S Sustraccion
+* OJO no se puede dividir entre 0 python te lanza error
+
+## Operadores de comparacion 
+* Comparacion 
+
+        # > Mayor que
+
+        print(2 > 5)
+
+        # < Menor que
+
+        print(2 < 5)
+
+        # >= Mayor igual que
+
+        print(2 >= 5)
+
+        # <= Menor igual que
+
+        print(2 <= 5)
+
+* Igualacion 
+
+        # Igual netamente iguales
+        print(5==5)# 5 es igual a 5 ?
+        print(5==4)
+
+        # Diferente 
+        print(5 != 5)# 5 es diferente que 5 ?
+        print(5 != 4)
+
+## Comparacion de numeros flotantes
+
+* Existen siertos problemas para comparar numeros flotantes ya que algunos cuentan con una precision diferente 
+        
+        #Por ejemplo  
+        x = 3.3
+        y = 1.1 + 2.2
+        print(x) # Nos da 3.3
+        print(y) # Nos da 3.3000000001
+        Al momento de comparar nos saldra Falso
+        print(x==y) 
+
+* Como podemos cortar esa precision?
+
+        y_str = format(y,".2g") # Le aplicamos formato para tener 2g digitos nada mas
+        print(x==y_str) #Nos dara true
+
+* Forma matematica 
+        
+        x = 3.3
+        y = 1.1 + 2.2
+        #Creamos una tolerancia 
+        tolerancia = 0.00001
+
+        print(abs(x-y)<tolerancia)
+
+## Operadores logicos 
+### AND
+
+        #AND si ambas condiciones son verdaderas da TRUE
+
+                1 and 1 = TRUE
+                0 and 1 = FALSE
+                1 and 0 = FALSE
+                0 and 0 = FALSE
+
+        print (5 > 4 and 4>3)
+
+* Ejemplo practico
+        
+        #El valor que debemos introducir debe ser >=100 y <=1000 solo asi recibiremos un TRUE
+        stock = input("ingrese un numero para el stock:")
+        stock = int(stock)
+        print (stock>=100 and stock <=1000)
+
+### OR
+
+        # OR si una de las variables es true nos resulta TRUE
+                1 or 1 = TRUE
+                0 or 1 = TRUE
+                1 or 0 = TRUE
+                0 or 0 = FALSE
+### NOT
+
+       # Revierte el valor de cualquier ya antes mencionado
+
+## Condicionales
+
+        # IF
+        animal = input('Cual es tu animal favorito:')
+        if animal == 'perro':
+        print("los perros son los mejores amigos del hombre")
+        if animal == 'gato':
+        print("los gatos son muy independientes")
+        if animal == 'leon':
+        print("El leon es el rey de la selva")
+        if animal == 'tigre':
+        print("El tigre siempre segundo")
+        else:
+        print("lo siento tu animal no existe en la database")
+
+        # ELIF es lo mismo
+         animal = input('Cual es tu animal favorito:')
+        if animal == 'perro':
+        print("los perros son los mejores amigos del hombre")
+        elif animal == 'gato':
+        print("los gatos son muy independientes")
+        else: 
+        print("lo siento tu animal no existe en la database")
+
+* Reto de numeros impares 
+
+        numbre = int(input('Ingrese algun valor:'));
+        result= number % 2 
+        if (result=0):
+                print('Es par')
+        else:        
+                print(  'Es impar')
+
+## Proyecto condicionales 
+
+        # Juego de piedra papel o tijiera
+
+## Funciones para STINGS
+
+* in nos permite saber si existe un valor dentro de un texto o campo
+
+        text = "Ella sapeeee programar en Pythin"# Funcion in 'variable o tambien puede ser array'
+        
+        print('en' in text)
+        if ("Ella" in text):
+        print('Si existe pero ella no te ama')
+        elif ('sapeeee' in text):
+        print('Nop')
+        else:
+        print('nop')
+
+*  len Nos permite contar cuantos caracteres hay en un array # o texto, ojo cuenta los espacios
+
+        size = len('El jose sapeeee')
+        print(size)
+        text = "Ella sapeeee programar en Pythin"
+        print(text.upper())  #MAYUSCULAS
+        print(text.lower())  #minusculas
+        print(text.count('a'))  #Cuenta las a's del texto
+        print(text.swapcase())  #Revierte los caracteres del texto may a min
+        print(text.startswith('Ella'))  # Preguntamos si el texto #empieza con ella
+        print(text.endswith('e'))  # Termina en e?
+
+* Reemplazar
+
+        print(text.replace('Pythin','Python'))  #Le decimos que reemplase Pythin por Python
+
+
+* Pregunta si es digito 
+
+        print('114'.isdigit()) #Debe responder TRUE
+### Mas metodos
+
+1. capitaliza      Cambia todas las letras a minúsculas menos la primera.
+2. casefold        Utilizada para compara cadenas sin importar el tamaño de los caracteres.
+3.  center          Formaseta una cadena alineandola al centro
+4.  count           Cuenta las ocurrencias de una cadena
+5.  encode          Codifica una cadena según la codificación deseada.
+6.  endswith        Comprueba si la cadena termina con una cadena específica.
+7.  expandtabs      Convierte los tabuladores en espacios.
+8.  find            Devuelve el índice de la cadena buscada o -1 si no se encuentra.
+9.  format          Formatea una cadena de forma avanzada.
+10. format_map      Igual que format, pero sin hacer una copia de los parámetros.
+11. index           Devuelve el índice de una cadena de caracteres o ValueError.
+12. isalnum         Comprueba si la cadena es alfanumérica.
+13. isalpha         Comprueba si la cadena es alfabética.
+14. isascci         Comprueba si la cadena es ASCII.
+15. isdecimal       Comprueba si la cadena es un decimal.
+16. isdigit         Comprueba si la cadena es un dígito.
+17. isidentifier    Comprueba si la cadena es un identificador.
+18. islower         Comprueba si todos los caracteres son minúsculos.
+19. isnumeric       Comprueba si la cadena es numérica.
+20. isprintable     Comprueba si la cadena es imprimible.
+21. isspace         Comprueba si la cadena solo contiene espacios.
+22. istitle         Comprueba si la cadena tiene formato de título.
+23. isupper         Comprueba si todos los caracteres son mayúsculas.
+24. join            Une todos los elementos de un iterador en una cadena.
+25. ljust           Justifica la cadena a la izquierda.
+26. lower           Convierte la cadena a minúsculas.
+27. lstrip          Elimina los caracteres de espacio de la izquierda.
+28. maketrans       Crea una tabla de traducción para translate.
+29. partition       Crea particiones de una cadena usando un separador.
+30. replace         Reemplaza en la misma cadena un carácter por otro.
+31. removeprefix    Devuelve una nueva cadena con el prefijo especificado como argumento eliminado si se encuentra en la cadena origina.
+32. removesuffix    Devuelve una nueva cadena con el sufijo especificado
+33. rfin            Devuelve el índice de la cadena como parámetro buscando por la derecha o -1 si no se encuentra.
+34. rindex          Devuelve el índice de la cadena como parámetro buscando por la derecha o ValueError.
+35. rjust           Justifica la cadena a la derecha.
+36. rpartition      Crea particiones de una cadena usando un separador y comenzando por la derecha.
+37. rsplit          Devuelve una lista de cadenas al separar la original por un separador buscando por la derecha.
+38. rstrip          Devuelve una lista de cadenas separando la original por saltos de línea.
+39. split           Devuelve una lista de cadenas al separar la original por un separador.
+40. splitlines      Devuelve una lista de cadenas separando la original por saltos de línea.
+41. startswith      Comprueba si la cadena comienza con una cadena específica.
+42. strip           Elimina los espacios iniciales y finales de la cadena.
+43. swapcase        Cambia el tamaño de cada letra de minúsculas a Mayúsculas y las que estan en Mayúsculas a minúsculas.
+44. title           Convierte la cadena a formato título.
+45. translate       Reemplaza cada carácter por otro siguiendo una tabla de traducciones.
+46. upper           Convierte la cadena a mayúsculas.
+47. zfill           Añade ceros a la izquierda a una cadena numérica.
+
+## Indexin y slicing 
+### Indexin 
+* Son como arrays
+
+        text = "Ella sapeeee programar en Pythin"
+        #Quiero saber cual es el caracter segun el orden que defino #empiezan desde 0
+        print(text[0])  #Imprimira E
+        print(text[5])  #Imprimira s
+
+* Como saber cual es el ultimo valor del texto
+        
+        print(text[len(text) - 1])  #Mas usada haha
+
+###  Silicing
+* Se refiere a que podemos colocar 2 valores uno para indicar en que caracter comenzar y otro para terminar
+       
+        text = "Ella sapeeee programar en Pythin"
+        print(text[0:5])  #Extrae Ella
+        print(text[:5])  #Otro tipo de sintaxis
+        print(text[5:])  #Inicia desde el caracter 5 hasta el final
+        print(text[:])  #Inicia en 0 y termina en el final
+        print(text[:-1])  #Nos lleva al final menos 1
+
+* Saltos
+
+        print(text[12:22:1]) # Saltara valores de uno en uno en el #rango especificado
+        print(text[12:22:3]) # Saltara valores de uno en uno en el #rango especificado
+
+
+
+## Listas
+
+        numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        print(numbers[0])
+
+        strings = ['uno', 'dos', 'tres', 'cuatro', 'cinco']
+        print(strings)
+
+        types = ['uno', 2, 'tres', 4, 'cinco']
+        print(type(types))
+        types[0]= 1 # reemplaza el valor string por un number
+        print(types[:])
+
+
+* Puede ser modificada
+* Cada elemento esta separado por una coma
+* Puede contener todo tipo de datos
+* Metodos para listas
+* Lista.metodo(indice,elemento) o Lista.metodo(elemento)
+
+### Metodos importantes
+
+* count(elemento) cuenta cuantas veces un elemento esta en una lista
+
+* extend(lista) permite extender una lista agregándole los elementos de otra lista
+
+* pop() elimina y retorna el ultimo elemento de la lista
+
+* reverse() reversa el orden de la lista
+
+* sort() ordena la lista de manera ascendente o descendente
+
+### Actualizar un valor
+
+        Lista = [1, 2, 3, 4, 5]
+
+        Lista[0] = -8
+
+        Lista = [-8, 2, 3, 4, 5], resultado de la lista luego de actualizar el valor
+
+        Agregar un elemento
+
+        Lista.append(indice,elemento) o
+
+        Lista.append(elemento) en este caso el nuevo elemento se agrega al final de la lista
+
+        Eliminar un elemento
+
+        Lista.remove(indice, elemento)
+
+## Métodos de las listas
+
+        lista.metodo(posicion)
+        numeros.pop(5)
+
+* append(): Añade un ítem al final de la lista.
+* clear(): Vacía todos los ítems de una lista.
+* extend(): Une una lista a otra.
+* count(): Cuenta el número de veces que aparece un ítem.
+* index(): Devuelve el índice en el que aparece un ítem (error si no aparece).
+* insert(): Agrega un ítem a la lista en un índice específico.
+* pop(): Extrae un ítem de la lista y lo borra.
+* remove(): Borra el primer ítem de la lista cuyo valor concuerde con el que indicamos.
+* reverse(): Le da la vuelta a la lista actual.
+* sort(): Ordena automáticamente los ítems de una lista por su valor de menor a mayor.
+
+###  Otra forma de seleccionar el ultimo valor de la lista
+        numbers = [1, 2, 3, 4, 5]
+        numbers[-1] = 10
+        print(numbers[-1])  #
+        #* append se lo utiliza para agregar un valor x al final de una lista
+        numbers.append(-9)
+        print(numbers)
+        #insert inserta datos en la posision que seleccionamos
+        numbers.insert(0, 'el 1 fue reemplazado')
+        print(numbers)
+
+### FUSIONAR LISTAS
+        Personas = ['jose', 'ramiro', 'sebas']
+        Tareas = ['tarea_1', 'tarea_2', 'tarea_3', 'tarea_4']
+        new_list = Personas + Tareas
+        print(new_list)
+
+### Consultar si un elemento se encuentra dentreo de una lista
+
+        index = new_list.index('tarea_3')
+        print(new_list.insert(index, "Tarea terminada"))
+
+
+## Tuplas
+ Estructura de datos inmutables que contiene una secuencia ordenada de elementos
+
+        Tupla = (1, 2, 3, 4)
+
+- Los elementos están separados por espacios luego de las comas
+- Puede contener cualquier tipo de datos
+- Cada posición de la tupla tiene un índice
+- Es inmutable y por lo tanto no puede ser modificada, lo que permite proteger mejor la data si no queremos que se modifique por error 
+
+* Acceder a un elemento
+        
+        Tupla = (”A”, “B”, “C”)
+        Tupla [0] Indice a consultar
+
+        # “A” Nos retorna el resultado de la posición 0 en la tupla
+
+* Encontrar un elemento
+        
+        Tupla = (”A”, “B”, “C”)
+
+        “A” in Tupla
+
+        True
+
+        “Z” in Tupla
+
+        False
+
+### Metodos en tuplas
+
+* Buscar el Indice de un elemento
+
+        Tupla = (”A”, “B”, “C”)
+
+        Tupla.index(”A”)
+
+        0 Nos devuelve el indice del elemento que buscamos
+
+* Numero de veces que un elemento aparece en la Tupla
+
+        Tupla = (”A”, “B”, “C”)
+
+        Tupla.count(elemento)
+
+        Tupla.count(”B”)
+
+        # 1 Retorna el numero de veces del elemento en la Tupla
+
+* Trasformar una tupla a lista 
+
+        Tupla = (”A”, “B”, “C”)
+        lista = list(Tupla)
+
+* Trasformar una lista a tupla 
+
+        Lista = (”A”, “B”, “C”)
+        Tupla = tuple(Lista)
+
+### Piedra papel o tijiera con tuplas
+
+        import random # importamos la libreria random
+
+        options = (“piedra”, “papel”,“tijera”)# tupla para la seleccion de la maquina
+        
+        computer_option = random.choice(options)# la computadora elige un valor aleatoreo 
+        
+        user_option= 1
+        while user_option not in options:
+        user_option = input("piedra, papel o tijera: ").lower()
+
+        if user_option == computer_option:
+        print(“Empate!”)
+        elif user_option == “piedra”:
+        if computer_option == “tijera”:
+        print(“piedra gana a tijera”)
+        print(“user gano!”)
+        else:
+        print(“Papel gana a piedra”)
+        print(“computer gano!”)
+        elif user_option == “papel” :
+        if computer_option == “piedra”:
+        print(“papel gana a piedra”)
+        print(“user gano!”)
+        else:
+        print(“tijera gana a papel”)
+        print(“computer gano!”)
+        else: # user tiene tijera
+        if computer_option == “papel”:
+        print(“tijera gana a papel”)
+        print(“user gano!”)
+        else:
+        print(“piedra gana a tijera”)
+        print(“computer gano!”)
+
+        
