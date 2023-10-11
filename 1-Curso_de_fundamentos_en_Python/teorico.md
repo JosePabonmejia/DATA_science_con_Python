@@ -278,7 +278,7 @@ vars.py
 
 ## Proyecto condicionales 
 
-        # Juego de piedra papel o tijiera
+        # Juego de piedra papel o tijera
 
 ## Funciones para STINGS
 
@@ -542,7 +542,7 @@ vars.py
         Lista = (”A”, “B”, “C”)
         Tupla = tuple(Lista)
 
-### Piedra papel o tijiera con tuplas
+### Piedra papel o tijera con tuplas
 
         import random # importamos la libreria random
 
@@ -578,4 +578,211 @@ vars.py
         print(“piedra gana a tijera”)
         print(“computer gano!”)
 
+## Diccionarios  
+* Los diccionarios se compones de llave, valor. muy similares a un archivo .json
+
+        my_dictionary = {
+        'avion': 'objeto volador',
+        'name': 'Javier',
+        'last_name': 'Sepulveda',
+        'age': 109
+        }
+
+        print(my_dictionary)
+
+        #el tamanio del diccionario
+        print(len(my_dictionary))
+
+        #imprimiendo una llave 
+        print(my_dictionary['age'])
+
+* La funcion get, si no existe el valor sale un mensaje none(Maneja el error)
+* Se cambian los corchetes por parentesis(), ya que get es una funcion de python print(my_dict.get('test'))
+
+        print('name' in my_dictionary)
+        print('other' in my_dictionary)
+
+## Metodos CRUD para los diccionarios
+
+        print("--- "*5)
+        #Diccionario
+        person= {
+        'name': 'Camilo',
+        'last_name': 'Rico',
+        'langs': ['python', 'javascript'],
+        'age': 99
+        }
+
+        print(person)
+
+        person['name']='Camilo Andres' #Insertar valores
+        person['age']-=50 # Le resta a la edad actual los 50 que serian 49
+        person['langs'].append('rust') # Introduce el valor rust al final de los atributos
+        print(person) 
+        del person['last_name']
+        person.pop('age') 
+        print(person)
+
+
+        print(person.items()) # Imprime items 
+        print(person.keys()) # Imprime las llaves o atributos 
+        print(person.values()) # Nos muestra todos los valores
+        print(person.clear()) # Limpia el diccionarios
+
+
+##  Ciclos
+### While Mientras
+While es un ciclo que se ejecuta mientras la concicion sea verdadera
+
+* Tabla de multiplicar
+
+        i = 0 # Se inicia un contador para aumentar 
+        x = (int(input('Numero para la tabla de multiplicar que deceaas: '))) # Seleccionamos un valor repetitivo para la estructura de la tabla
+        y = (int(input(f'Hasta que numero quieres multiplicar {x}: '))) # Introducimos las veces que queremos que se repita la condicion
+
+        while i < y: # Esttuctura para que se repita la condicion
+        i += 1 # aumenta para que se cumpla la condicion
+        print(f'{x} x {i} = {x*i}')
+
+* Arbolito de navidad
+
+        i = 0
+        x = int(input('Cuantas filas quieres que tenga tu arbol de navidad? :'))
+        while i < x:
+          i += 1
+          print((' ' * (x - i)) + ('*' * (2 * i - 1)))
+## Ciclo FOR
+
+        x = int(input('x:'))
+        y = input('y:')
+        for x in range(x):
+          print(y)
+
+### Recorrer listas
+        mi_lista = [12, 14, 23, 45, 56]
+        for element in mi_lista:  # Existe un elemento en mi lista
+        print(element)  # Imprime la lista
+
+### Recorrer tuplas
+
+        mi_tupla = ('jose', 28, 'pabon', 2023)
+        for element in mi_tupla:
+        print(element)
+
+### Recorrer Diccionarios
+        mi_diccionario = {
+        'nombre': 'jose',
+        'edad': 28,
+        'apellido': 'pabon',
+        'anio': 2023
+        }
+        for element in mi_diccionario:
+        print(element, '=', mi_diccionario[element])
+        #Lista de diccionarios
+        lista_dict = [{
+        'nombre': 'jose',
+        'edad': 28
+        }, {
+        'nombre': 'Raul',
+        'edad': 38
+        }, {
+        'nombre': 'Fernando',
+        'edad': 78
+        }]
+        for person in lista_dict:
+        print()
+# Ciclos anidados
+
+        matriz = [
+        [1, 2, 3], 
+        [4, 5, 6], 
+        [7, 8, 9]
+        ]
+
+* Imprime la primera fila de la matriz
         
+        print(matriz[0])
+
+* Imprime el elemento 2 de la primera fila
+        
+        print(matriz[0][1])
+
+Recorremos las filas de la matriz y por cada fila recorremos cada una de las columnas
+
+        for row in matriz:
+        print(row)
+        for column in row:
+        print(column)
+
+## Juego de piedra papel y tijera con todo lo aprendido
+
+        import random 
+
+        options = ('piedra', 'papel', 'tijera')
+        rounds = 1
+        computer_wins = 0 
+        user_wins = 0
+
+        print("""
+        [ 🤖 Bienvenido al juego Piedra, Papel o tijera 🙋]
+                        >>> Ingresa una opción <<<
+        """)
+
+        while True:
+        print('***' * 10)
+        print('Round ', rounds)
+        print('***' * 10)
+        
+        print(f'''
+        🤖 Computer wins: {computer_wins}
+        🙋 User wins: {user_wins}
+                ''')
+        
+        user_option = input('>>> Piedra, papel o tijera => ').lower()
+        rounds += 1
+        
+        if not user_option in options:
+                print('Esa opción no es valida')
+                
+        computer_option = random.choice(options)
+
+        print('User option => ', user_option)
+        print('Computer option => ', computer_option)
+
+        if user_option == computer_option:
+                print('Empate!\n')
+        elif user_option == 'piedra':
+                if computer_option == 'tijera':
+                print('🪨 Piedra gana a tijera ✂️')
+                print('¡User gana!\n')
+                user_wins += 1
+                else:
+                print('📄 Papel gana a piedra 🪨')
+                print('¡Computer gana!\n')
+                computer_wins += 1
+        elif user_option == 'papel':
+                if computer_option == 'piedra':
+                print('📄 Papel gana a piedra 🪨')
+                print('¡User gana!\n')
+                user_wins += 1
+                else:
+                print('✂️ Tijera gana a papel 📄')
+                print('¡Computer gana!\n')
+                computer_wins += 1
+        elif user_option == 'tijera':
+                if computer_option == 'papel':
+                print('✂️ Tijera gana a papel 📄')
+                print('¡User gana!\n')
+                user_wins += 1
+                else:
+                print('🪨 Piedra gana a tijera ✂️')
+                print('¡Computer gana!\n')
+                computer_wins += 1
+        
+        if computer_wins == 3:
+                print('🎖️ El ganador es Computer 🎖️')
+                break
+        
+        if user_wins == 3:
+                print('🎖️ El ganador es User 🎖️')
+                break
